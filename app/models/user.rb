@@ -15,11 +15,17 @@ class User < ActiveRecord::Base
 
   validates :user_name, :password_digest, presence: true
   validates :user_name, :session_token, uniqueness: true
-  validates :password, length: { minimum: 4 }
+  validates :password, length: { minimum: 4, allow_nil: true }
   validate :ensure_session_token
 
   def self.generate_session_token
     SecureRandom.urlsafe_base64(16)
+  end
+
+  def self.validate_credentials(user_name, password)
+    user = User.find_by_user_name(user_name)
+    return user if user && user.is_password?(password)
+    nil
   end
 
   def is_password?(password)
@@ -33,6 +39,8 @@ class User < ActiveRecord::Base
 
   def reset_session_token!
     self.session_token = User.generate_session_token
+    self.save!
+    self.session_token
   end
 
   private

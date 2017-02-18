@@ -1,13 +1,13 @@
-
-<h4>Create an account:</h4>
-<form action="<%= users_url %>" method="post">
+<h4>Log in to an existing account:</h4>
+<form action="<%= sessions_url %>" method="post">
 
   <label for="username">Username</label>
   <input
     type="text"
     id="username"
     name="user[user_name]"
-    value="<%= @user ? @user.user_name : "" %>">
+    vale="<%= @user ? @user.user_name : "" %>"
+  >
 
   <label for="password">Password</label>
   <input
@@ -17,5 +17,5 @@
     placeholder="minimum 4 letters"
   >
 
-  <input type="submit" value="Sign Up">
+  <input type="submit" value="Log In">
 </form>
