@@ -1,0 +1,14 @@
+<h4>Create a sub -- do it.</h4>
+<form action="<%= subs_url %>" method="post">
+  <label for="title">Sub Title:</label>
+  <input type="text" id="title" name="sub[title]">
+
+  <br>
+  <br>
+  
+  <label for="description">A short description of your sub</label>
+  <br>
+  <textarea name="sub[description]" id="description" rows="8" cols="80"></textarea>
+
+  <input type="submit" value="create sub">
+</form>

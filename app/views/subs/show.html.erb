@@ -1,0 +1,9 @@
+<h4>a sub, a sub, surely this must be a sub</h4>
+<h3>And it is. It's a sub called "<%= @sub.title %>"</h3>
+<h4>and here is a description of the sub:</h4>
+<p><%= @sub.description %></p>
+<br>
+<p>(the moderator for this sub is <%= @sub.moderator.user_name %>
+if you are <%= @sub.moderator.user_name %> you can click
+<%= link_to "here", edit_sub_url(@sub), method: :get %> to edit)
+</p>

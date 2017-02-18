@@ -13,14 +13,16 @@
     <%= button_to "Log Out", sessions_url, method: :delete %>
   <% else %>
   <!-- else show a log in button -->
+    <%= button_to "Sign Up (if you haven't)", new_user_url, method: :get %>
     <%= button_to "Log In", new_sessions_url, method: :get %>
   <% end %>
   <!-- regardless, show a sign up button -->
-  <%= button_to "Sign Up (if you haven't)", new_user_url, method: :get %>
   <% flash[:errors].try(:each) do |error| %>
     <p style="color:red"><%= error %></p>
   <% end %>
 <%= yield %>
+
+<%= button_to "I want to look at all the subs", subs_url, method: :get %>
 
 </body>
 </html>
